@@ -33,8 +33,7 @@ class Database:
 
     def store_diagnosed_data(self, name, diagnosed_data):
         db.child('users').child(name).child('patients').child('patient-details').set(diagnosed_data)
-        nnn = db.order_by_child('Pravin')
-        print(nnn)
+     
 
     def store_patient_details(self, name, patient_details):
         db.child('users').child(name).child('patients').set(patient_details)
