@@ -8,7 +8,7 @@ class Datatable:
         name = input("Doctor please enter your name again: ")
         print('this is data')
         patient_name = input("please enter patient name: ")
-        print(db.get_patient_data(name,patient_name,))
+        print(db.get_patient_data(name,patient_name))
 
 
 

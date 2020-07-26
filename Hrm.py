@@ -57,18 +57,18 @@ class Hrm:
         db.storing_user_details(self.doctor_details)
 
     #def get_diagnosis_detail(self):
-        diag.ask_for_diagnosis_report()
-        self.add_diagnosis_report()
+        #diag.ask_for_diagnosis_report()
+        #self.add_diagnosis_report()
 
     #def add_diagnosis_report(self):
-        name = input("enter your name again")
-        db.store_diagnosed_data(name, diag.patient_details)
+        #name = input("enter your name again")
+        #db.store_diagnosed_data(name, diag.patient_details)
 
-    def add_patient_details(self):
+    @staticmethod
+    def add_patient_details():
         patient.ask_mode()
         name = input("Doctor please enter your name again")
         db.store_patient_details(name,patient.patient_detail)
-
 
 
 hrm = Hrm()
