@@ -12,7 +12,6 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
-
 class Authentication:
 
     @staticmethod
@@ -31,9 +30,19 @@ class Database:
     def storing_user_details(doctor_details):
         db.child("users").child(doctor_details["doctors_name"]).child('doctor_details').set(doctor_details)
 
-    def store_diagnosed_data(self, name, diagnosed_data):
-        db.child('users').child(name).child('patients').child('patient-details').set(diagnosed_data)
+    #def store_diagnosed_data(self, name, diagnosed_data):
+        #db.child('users').child(name).child('patients').set(diagnosed_data)
      
 
     def store_patient_details(self, name, patient_details):
-        db.child('users').child(name).child('patients').set(patient_details)
+        db.child('users').child(name).child('patients').child(patient_details["personal_info"]["name"]).set(patient_details)
+
+    def get_doctor_data(self,name):
+        user = db.child("users").child(name).child('doctor_details').get()
+        return user.val()
+
+    def get_patient_data(self,name,patient_name):
+        patient = db.child("users").child(name).child('patients').child(patient_name).get()
+        return patient.val()
+
+

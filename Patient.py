@@ -1,12 +1,20 @@
+import diagnosis
+
+diag = diagnosis.Diagnosis()
+
 
 class PatientInfo:
     patient_detail = {
 
-        "name": "",
-        "gender": "",
-        "age": "",
-        "address": "",
-        "contact_detail": "",
+       "personal_info": {
+           "name": "",
+           "gender": "",
+           "age": "",
+           "address": "",
+           "contact_detail": "",
+       },
+
+        "diagnosis": ""
     }
 
     def ask_mode(self):
@@ -20,16 +28,17 @@ class PatientInfo:
             print("Enter your valid choice")
 
     def ask_for_patient_detail(self):
-        self.patient_detail["name"] = input("your name:")
-        self.patient_detail["age"] = input("your age:")
-        self.patient_detail["address"] = input("your address:")
-        self.patient_detail["contact_detail"] = int(input("your contact_detail:"))
+        self.patient_detail["personal_info"]["name"] = input("your name:")
+        self.patient_detail["personal_info"]["age"] = input("your age:")
+        self.patient_detail["personal_info"]["address"] = input("your address:")
+        self.patient_detail["personal_info"]["contact_detail"] = int(input("your contact_detail:"))
         gender = input("gender \n M=male \n F=female ")
         if gender == "M":
-            self.patient_detail["gender"] = "male"
+            self.patient_detail["personal_info"]["gender"] = "male"
         else:
-            self.patient_detail["gender"] = "female"
+            self.patient_detail["personal_info"]["gender"] = "female"
 
+        self.patient_detail["diagnosis"] = diag.ask_for_diagnosis_report()
         print("This is your info")
 
 

@@ -1,12 +1,10 @@
-import Authtentication
+import Authentication
 
-db = Authtentication.Database()
+db = Authentication.Database()
 
 
 class Diagnosis:
     diagnosis = []
-    patient_details = {
-    }
 
     def ask_for_diagnosis_report(self):
         print('Enter daignosis info: ')
@@ -19,7 +17,6 @@ class Diagnosis:
                 self.diagnosis.append(diagnosis_input)
 
         print(self.diagnosis)
-        self.patient_details.update({"diagnosis": self.diagnosis})
-        print(self.patient_details)
+        return self.diagnosis
 
 

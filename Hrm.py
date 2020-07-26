@@ -1,10 +1,10 @@
-import Authtentication
-import Diagnosis
+import Authentication
+import diagnosis
 import Patient
 
-auth = Authtentication.Authentication()
-db = Authtentication.Database()
-diag = Diagnosis.Diagnosis()
+auth = Authentication.Authentication()
+db = Authentication.Database()
+diag = diagnosis.Diagnosis()
 
 patient = Patient.PatientInfo()
 
@@ -56,11 +56,11 @@ class Hrm:
     def store_doctor_detail(self):
         db.storing_user_details(self.doctor_details)
 
-    def get_diagnosis_detail(self):
+    #def get_diagnosis_detail(self):
         diag.ask_for_diagnosis_report()
         self.add_diagnosis_report()
 
-    def add_diagnosis_report(self):
+    #def add_diagnosis_report(self):
         name = input("enter your name again")
         db.store_diagnosed_data(name, diag.patient_details)
 
@@ -74,4 +74,3 @@ class Hrm:
 hrm = Hrm()
 hrm.ask_for_user_choice()
 hrm.add_patient_details()
-hrm.get_diagnosis_detail()
